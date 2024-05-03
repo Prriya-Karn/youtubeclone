@@ -1,81 +1,108 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import _ from "lodash";
-const API_KEY = 'AIzaSyD939b6ColhhVBzg3vseJPQ_6i_gm0yHNs';
+import React, { Fragment, createContext, useEffect, useState } from "react";
+import YoutubeData, { ThapaTechnical } from "./ApnaDataBase";
+import { NavLink } from "react-router-dom";
+import IFrame from "./IFrame";
+import Chan from "./Chan";
+
+const iframe = createContext();
 const YoutubeClone = () => {
+    const [click, setClick] = useState(YoutubeData);
+    const [search, setSearch] = useState();
+    const [searchData, setSearData] = useState([]);
 
-    const [data, updateData] = useState([]);
-    const [list, updateList] = useState([]);
-    const [enter, updateEnter] = useState("");
-    debugger;
-    const api = async () => {
-        try {
-            const fetchApi = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet,id&key=${API_KEY}&type=video&q=${enter}`)
-            const fres = await fetchApi.json();
-            updateData(fres.items[0].id.videoId);
-            updateList(fres.items)
+    const funexpr = (data) => {
+        const filterData = YoutubeData.filter((e) => {
+            return (e.name).toUpperCase() === data.toUpperCase();
+        })
+        if (data === "mixes") {
+            setClick(YoutubeData);
+        }
+        else {
+            setClick(filterData)
+        }
 
-        }
-        catch (error) {
-            console.log(`error is ${error}`)
-        }
     }
 
-//trottle
+    const searchText = (event) => {
+        const value = event.target.value;
+        setSearch(value);
+    }
 
-    const inputdata = _.debounce((event) => {
-        updateEnter(event.target.value)
-    }, 1000)
+    const submitText = (s) => {
+        if (s.trim() === "") {
+            setClick(click)
+        }
+        else {
+            const filterSearchData = YoutubeData.filter((e) => {
+                return e.name.toUpperCase() === s.toUpperCase();
+            })
 
-    useEffect(() => {
-        api(enter);
-    }, [enter])
+            setClick(filterSearchData)
+            console.log(searchData)
+        }
 
-    console.log(enter)
-console.log(data)
-
-
-
-
-
-
-
-
+        var filterchannel = ThapaTechnical.filter((e) => {
+            return e.channelName.toUpperCase() === s.toUpperCase()
+        })
+        if(ThapaTechnical.map((e)=>e.channelName).includes(search)===true){
+            (setClick(filterchannel))
+            console.log(filterchannel)
+            console.log(true)
+        }else{
+            console.log(false)
+        }
+    }
+        
+   
     return (
-        <>
-            <input type="text" onChange={inputdata} />
+        <Fragment>
 
-            <>
-                <iframe width="560" height="315"
-                    src={`https://www.youtube.com/embed/${data}`}
-                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <input type="text" className="m-2" onChange={searchText} placeholder="search" />
+            <button className="btn" onClick={() => funexpr("JavaScript")}>javaScript</button>
+            <button className="btn" onClick={() => funexpr("Music")}>Music</button>
+            <button className="btn" onClick={() => funexpr("cartoon")}>Cartoon</button>
+            <button className="btn" onClick={() => funexpr(YoutubeData[3].name)}>Mixes</button>
 
-            </>
 
-            {
-                list.map((e) => {
-                    return (
+
+          
+                
+                 <button onClick={() => { submitText(search) }}>submit</button>
+         
+             {
+                click.map((e)=>{
+                    return(
                         <>
-                            <iframe width="560" height="315"
-                                src={`https://www.youtube.com/embed/${e.id.videoId}`}
-                                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
+                        <h1>{e.channelName}</h1>
+                        <IFrame link= {e.link}/>
+                        <h5>{e.title}</h5>
+                        <p>{e.views}</p>
                         </>
                     )
                 })
+             }   
+               
+
+            {
+                (click).map((e, id) => {
+
+                    return (
+                        <div key={id}>
+                            <h1>{e.name}</h1>
+
+                            <IFrame link={e.videoLink.link1} />
+                            <IFrame link={e.videoLink.link2} />
+                            <IFrame link={e.videoLink.link3} />
+                            <IFrame link={e.videoLink.link4} />
+
+                        </div>
+                    )
+                })
             }
-        </>
+            
+        </Fragment>
     )
 }
 
 export default YoutubeClone;
-
-
-
-
-// https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY
-//      &part=snippet,statistics&fields=items(id,snippet,statistics)
-
-
-// movie api = https://www.omdbapi.com/?apikey=a0b26e7d&t=titanic
+export { iframe };
