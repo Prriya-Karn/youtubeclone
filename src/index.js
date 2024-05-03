@@ -6,6 +6,9 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle"; //due to this all b
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
+import './YoutubeClone/YoutubeClone.css';
+
+
 ReactDOM.render(
 
   <BrowserRouter>

@@ -1,25 +1,27 @@
-// import React, { Fragment } from "react";
-// const Chan = (props)=>{
-//     const res = props.searchData && Array.isArray(props.searchData)
-//         ? props.searchData.map((e) => e.channelName)
-//         : []; // Default to empty array if props.searchData is not valid
+import React, { Fragment } from "react";
+import IFrame from "./IFrame";
+const Chan = (props)=>{
+    
+    return(
+    <Fragment>
+    
+    {
+        props.click.map((e)=>{
+            return(
+                <>
+                <h1>{e.channelName}</h1>
+                <IFrame link= {e.link}/>
+                <h5>{e.title}</h5>
+                <p>{e.views}</p>
+                </>
+            )
+        })
+     }   
+       
 
-//     console.log(res);
-//     return(
-        
-//       <Fragment>
-//       {
-// props.searchData.map((e)=>{
-//     return(
-//         <>
-//         <h1>{e.title}</h1>
-//         </>
-//     )
-// })
-//       }
-     
-//         </Fragment>
-//     )
-// }
+    
+    </Fragment>
+    )   
+    }
 
-// export default Chan;
+export default Chan;

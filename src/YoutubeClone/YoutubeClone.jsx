@@ -1,10 +1,13 @@
 import React, { Fragment, createContext, useEffect, useState } from "react";
-import YoutubeData, { ThapaTechnical } from "./ApnaDataBase";
+import YoutubeData, { ThapaTechnical, mysirg } from "./ApnaDataBase";
 import { NavLink } from "react-router-dom";
 import IFrame from "./IFrame";
 import Chan from "./Chan";
+import { filter } from "lodash";
 
 const iframe = createContext();
+var filterchannel;
+var filterchannel2;
 const YoutubeClone = () => {
     const [click, setClick] = useState(YoutubeData);
     const [search, setSearch] = useState();
@@ -41,65 +44,111 @@ const YoutubeClone = () => {
             console.log(searchData)
         }
 
-        var filterchannel = ThapaTechnical.filter((e) => {
+        filterchannel = ThapaTechnical.filter((e) => {
             return e.channelName.toUpperCase() === s.toUpperCase()
         })
-        if(ThapaTechnical.map((e)=>e.channelName).includes(search)===true){
+        if (ThapaTechnical.map((e) => e.channelName).includes(search) === true) {
             (setClick(filterchannel))
             console.log(filterchannel)
-            console.log(true)
-        }else{
-            console.log(false)
+            // console.log(true)
+        } else {
+            // console.log(false)
+        }
+
+        filterchannel2 = mysirg.filter((e) => {
+            return e.channelName.toUpperCase() === s.toUpperCase()
+        })
+        if (mysirg.map((e) => e.channelName).includes(search) === true) {
+            (setClick(filterchannel2))
+            // console.log(filterchannel2)
+            // console.log(true)
+        } else {
+            // console.log(false)
         }
     }
+
+    const tab = (s)=>{
         
-   
+        var filterTab = ThapaTechnical.filter((e)=>{
+            return e.options === s;
+        })
+  
+       if (ThapaTechnical.map((e) => e.options).includes(s) === true) {
+            (setClick(filterTab))
+            
+            // console.log(filterTab)
+            // console.log(true)
+        }
+
+        if(s==="All"){
+           
+            setClick(filterchannel)
+        }
+    }
     return (
         <Fragment>
 
-            <input type="text" className="m-2" onChange={searchText} placeholder="search" />
-            <button className="btn" onClick={() => funexpr("JavaScript")}>javaScript</button>
-            <button className="btn" onClick={() => funexpr("Music")}>Music</button>
-            <button className="btn" onClick={() => funexpr("cartoon")}>Cartoon</button>
-            <button className="btn" onClick={() => funexpr(YoutubeData[3].name)}>Mixes</button>
+            <input type="text" className="m-2"
+             onChange={searchText} 
+             placeholder="search" />
 
-
-
-          
-                
-                 <button onClick={() => { submitText(search) }}>submit</button>
-         
              {
-                click.map((e)=>{
-                    return(
-                        <>
-                        <h1>{e.channelName}</h1>
-                        <IFrame link= {e.link}/>
-                        <h5>{e.title}</h5>
-                        <p>{e.views}</p>
-                        </>
-                    )
-                })
-             }   
-               
+                (ThapaTechnical.map((e)=>e.channelName).includes(search)===true)?<>
+                <button onClick={()=>tab("watched")}>watched</button>
+                <button onClick={()=>tab("unwatched")}>unwatched</button>
+                <button onClick={()=>tab("videos")}>videos</button>
+                <button onClick={()=>tab("shorts")}>shorts</button>
+                <button onClick={()=>tab("All")}>All</button>
+                </>:
+                <>
+                <button onClick={()=>funexpr("javaScript")}>JavaScript</button>
+            <button onClick={()=>funexpr("music")}>music</button>
+            <button onClick={()=>funexpr("cartoon")}>cartoon</button>
+            <button onClick={()=>funexpr("mixes")}>mixes</button>
+            <button onClick={()=>funexpr("T-series")}>tseries</button>
+                </>
+             }
+            
+
+
+
+            <button onClick={() => { submitText(search) }}>submit</button>
+
+
 
             {
-                (click).map((e, id) => {
-
+                (click === filterchannel || click ===filterchannel2)?click.map((e) => {
                     return (
-                        <div key={id}>
-                            <h1>{e.name}</h1>
-
+                        <>
+                            <h1>{e.channelName}</h1>
+                            <IFrame link={e.link} />
                             <IFrame link={e.videoLink.link1} />
                             <IFrame link={e.videoLink.link2} />
                             <IFrame link={e.videoLink.link3} />
                             <IFrame link={e.videoLink.link4} />
-
-                        </div>
+                            <h5>{e.title}</h5>
+                            <p>{e.views}</p>
+                            
+                            
+                        </>
                     )
-                })
+                }) :
+                    (click).map((e, id) => {
+
+                        return (
+                            <div key={id}>
+                            
+                                <h1>{e.name}</h1>
+
+                                <IFrame link={e.videoLink.link1} />
+                                <IFrame link={e.videoLink.link2} />
+                                <IFrame link={e.videoLink.link3} />
+                                <IFrame link={e.videoLink.link4} />
+                              
+                            </div>
+                        )
+                    })
             }
-            
         </Fragment>
     )
 }
