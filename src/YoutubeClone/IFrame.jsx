@@ -1,7 +1,9 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import YoutubeData from "./ApnaDataBase";
 
 const IFrame = (props) => {
+    
+    
     return(
 <>
 <a href="" target="_blank">
@@ -9,9 +11,9 @@ const IFrame = (props) => {
         height="315"
         src={props.link}
         title="YouTube video player"
-        Frameborder="0" allow="accelerometer;
-    autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        Frameborder="0" allow="autoplay; encrypted-media
+   clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
     </iframe>
     </a>
     </>

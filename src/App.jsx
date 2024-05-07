@@ -4,6 +4,7 @@ import { Route, Router, Routes } from "react-router-dom";
 import List from "./YoutubeClone/List";
 import IFrame from "./YoutubeClone/IFrame";
 import Chan from "./YoutubeClone/Chan";
+import Video from "./YoutubeClone/Video";
 const App = () => {
   return (
     <Fragment>
@@ -12,6 +13,7 @@ const App = () => {
         <Route exact path="/list" element={<List />} />
         <Route exact path = "/videos" element = {<IFrame/>}/>
         <Route exact path = "/chan" element = {<Chan/>}/>
+        <Route exact path = "/video"  element = {<Video/>}/>
       </Routes>
     </Fragment>
   )

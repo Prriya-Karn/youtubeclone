@@ -2,7 +2,7 @@ const YoutubeData = [
     {
         id: 1,
         name: "javaScript",
-
+        src:"./Images/js.jpg",
         videoLink: {
             link1: "https://www.youtube.com/embed/W6NZfCO5SIk?si=s4ciLBRJ0jwSwnhs",
         link2: "https://www.youtube.com/embed/uhp2281BFjc?si=M4Y3YXOiTCMXYWYk",
@@ -14,6 +14,7 @@ const YoutubeData = [
     {
         id: 2,
         name: "Music",
+        src:"./Images/music.jpg",
         videoLink: {
             link1: "",
             link2: "",
@@ -25,6 +26,7 @@ const YoutubeData = [
     {
         id: 3,
         name: "cartoon",
+        src:"./Images/cartoon.jpg",
         videoLink: {
             link1: "",
             link2: "",
@@ -45,6 +47,7 @@ const YoutubeData = [
     {
         id: 4,
         name: "T-Series",
+        src:"./Images/tseries.jpg",
         videoLink: {
             link1: "",
             link2: "",
@@ -55,6 +58,7 @@ const YoutubeData = [
     {
         id: 5,
         name: "Test",
+        src:"./Images/test.jpg",
         videoLink: {
             link1: "",
             link2: "",
