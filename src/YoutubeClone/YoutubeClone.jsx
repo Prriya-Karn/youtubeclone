@@ -1,30 +1,22 @@
-import React, { Fragment, createContext, useEffect, useState } from "react";
+import React, { Fragment, createContext, useEffect, useState} from "react";
+
 import YoutubeData, { ThapaTechnical, mysirg } from "./ApnaDataBase";
 import { NavLink } from "react-router-dom";
 import IFrame from "./IFrame";
 import Chan from "./Chan";
 import { filter } from "lodash";
-import Video from "./Video";
+import Video, { images, video } from "./Video";
 import Image from "./Image";
+import YoutubeDetail from "./YoutubeDetail";
 
 const iframe = createContext();
 var filterchannel;
 var filterchannel2;
-const YoutubeClone = () => {
-   
-
-
+const YoutubeClone = () =>{
     const [click, setClick] = useState(YoutubeData);
     const [search, setSearch] = useState();
     const [searchData, setSearData] = useState([]);
-    const [vi,setvi] = useState([]);
 
-    const videoFun = (data) => {
-        const filtervi = YoutubeData.filter((e) => (e.name).toLowerCase() === data.toLowerCase());
-        setvi(filtervi); 
-    };
-    console.log(vi)
-  
     const funexpr = (data) => {
         const filterData = YoutubeData.filter((e) => {
             return (e.name).toUpperCase() === data.toUpperCase();
@@ -47,6 +39,7 @@ const YoutubeClone = () => {
         if (s.trim() === "") {
             setClick(click)
         }
+        
         else {
             const filterSearchData = YoutubeData.filter((e) => {
                 return e.name.toUpperCase() === s.toUpperCase();
@@ -81,11 +74,11 @@ const YoutubeClone = () => {
 
     const tab = (s) => {
 
-        var filterTab = ThapaTechnical.filter((e) => {
+        var filterTab = (ThapaTechnical||mysirg).filter((e) => {
             return e.options === s;
         })
 
-        if (ThapaTechnical.map((e) => e.options).includes(s) === true) {
+        if ((mysirg||ThapaTechnical).map((e) => e.options).includes(s) === true) {
             (setClick(filterTab))
 
             // console.log(filterTab)
@@ -116,13 +109,17 @@ const YoutubeClone = () => {
                 placeholder="search" />
 
             {
-                (ThapaTechnical.map((e) => e.channelName).includes(search) === true) ? <>
+                ((ThapaTechnical).map((e) => e.channelName).includes(search) === true) 
+                || ((mysirg).map((e) => e.channelName).includes(search) === true)
+                ? 
+                <>
                     <button onClick={() => tab("watched")}>watched</button>
                     <button onClick={() => tab("unwatched")}>unwatched</button>
                     <button onClick={() => tab("videos")}>videos</button>
                     <button onClick={() => tab("shorts")}>shorts</button>
                     <button onClick={() => tab("All")}>All</button>
-                </> :
+                    
+                    </> :
                     <>
                         <button onClick={() => funexpr("javaScript")}>JavaScript</button>
                         <button onClick={() => funexpr("music")}>music</button>
@@ -141,13 +138,14 @@ const YoutubeClone = () => {
 
 
             {
-                (click === filterchannel || click === filterchannel2) ? click.map((e) => {
+                (click === filterchannel || click === filterchannel2) 
+                ? click.map((e) => {
                     return (
                         <Fragment>
                             <h1>{e.channelName}</h1>
-
-
-                            
+                            <IFrame
+                            link = {e.link}
+                            />
                             <h5>{e.title}</h5>
                             <p>{e.views}</p>
 
@@ -155,37 +153,19 @@ const YoutubeClone = () => {
                         </Fragment>
                     )
                 }) :
-                    (click).map((e, id) => {
-
-                        return (
-                            <div key={id}>
-                            
-                            <img src={e.src} 
-                            onClick={()=>videoFun(e.name)}/>
-                            </div>
-                        )
-                    })
-                    
-
+                <Video  
+                click = {click}
+                />
             }
+            
+            
 
-
+          
             {
-                vi.map((e)=>{
-                    return(
-                        <>
-                        <h1>{e.name}</h1>
-                        <IFrame
-                        link = {e.videoLink.link1}
-                        />
-                        </>
-                    )
-                })
+               (("thapatechnical").toLowerCase().includes(search)===true)
+               || (("mysirg").toLowerCase().includes(search)===true)
+               ? <Chan click ={click}/>:""
             }
-<Video
-vi = {vi}
-/>
-
 
 
             

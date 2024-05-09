@@ -2,7 +2,7 @@ const YoutubeData = [
     {
         id: 1,
         name: "javaScript",
-        src:"./Images/js.jpg",
+        src:"/Images/js.jpg",
         videoLink: {
             link1: "https://www.youtube.com/embed/W6NZfCO5SIk?si=s4ciLBRJ0jwSwnhs",
         link2: "https://www.youtube.com/embed/uhp2281BFjc?si=M4Y3YXOiTCMXYWYk",
@@ -14,7 +14,7 @@ const YoutubeData = [
     {
         id: 2,
         name: "Music",
-        src:"./Images/music.jpg",
+        src:"/Images/music.jpg",
         videoLink: {
             link1: "",
             link2: "",
@@ -26,17 +26,7 @@ const YoutubeData = [
     {
         id: 3,
         name: "cartoon",
-        src:"./Images/cartoon.jpg",
-        videoLink: {
-            link1: "",
-            link2: "",
-            link3: "",
-            link4: ""
-        }
-    },
-    {
-        id: 3,
-        name: "mixes",
+        src:"/Images/cartoon.jpg",
         videoLink: {
             link1: "",
             link2: "",
@@ -46,8 +36,8 @@ const YoutubeData = [
     },
     {
         id: 4,
-        name: "T-Series",
-        src:"./Images/tseries.jpg",
+        name: "mixes",
+        src:"",
         videoLink: {
             link1: "",
             link2: "",
@@ -57,8 +47,19 @@ const YoutubeData = [
     },
     {
         id: 5,
+        name: "T-Series",
+        src:"/Images/tseries.jpg",
+        videoLink: {
+            link1: "",
+            link2: "",
+            link3: "",
+            link4: ""
+        }
+    },
+    {
+        id: 6,
         name: "Test",
-        src:"./Images/test.jpg",
+        src:"/Images/test.jpg",
         videoLink: {
             link1: "",
             link2: "",
@@ -198,7 +199,7 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        // options:"All"
+        options:"All"
         
     },
     {
@@ -215,7 +216,7 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        // options : "watched"
+        options : "watched"
         
     },
     {
@@ -232,7 +233,7 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        // options : "unwatched"
+        options : "unwatched"
         
     },
     {
@@ -249,7 +250,7 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        // options:"shorts"
+        options:"shorts"
         
     },
     {
@@ -266,7 +267,7 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        // options:"videos"
+        options:"videos"
         
     },
     {
@@ -283,7 +284,7 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        // options : "new"
+        options : "new"
         
     },
   
