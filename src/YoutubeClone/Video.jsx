@@ -26,12 +26,11 @@ const Video = ({click}) => {
 console.log(click)
 
   const handleClick = (imageId) => {
-    const image = YoutubeData.find(image => image.id === imageId);
-    // console.log("Selected Image:", image);
-    setSelectedImage(image);
-    navigate(`/image/${imageId}`)
-    
-  };
+    // const image = YoutubeData.find(image => image.id === imageId);
+    // // console.log("Selected Image:", image);
+    // setSelectedImage(image);
+    navigate(`/image/${imageId}`)   //path="/image/:id" 
+};
   // console.log(selectedImage)
  
 

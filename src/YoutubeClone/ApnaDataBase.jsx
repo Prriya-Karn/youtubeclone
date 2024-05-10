@@ -3,18 +3,26 @@ const YoutubeData = [
         id: 1,
         name: "javaScript",
         src:"/Images/js.jpg",
+        channelData : "/Images/download.jpg",
+        channelIfram : "https://www.youtube.com/embed/5ccq_nLHneE?si=j7DGWuaPdpWRoyHQ",
+      
+        description :"406 views  5 hours ago Welcome, on a 100-day JavaScript journey with me! Join me as I tackle a new coding challenge every day, exclusively using JavaScript. Let's level up our skills together, one problem at a time.…",
         videoLink: {
-            link1: "https://www.youtube.com/embed/W6NZfCO5SIk?si=s4ciLBRJ0jwSwnhs",
+            link1: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
         link2: "https://www.youtube.com/embed/uhp2281BFjc?si=M4Y3YXOiTCMXYWYk",
         link3: "https://www.youtube.com/embed/-Am5qgltL8U?si=S3xO1jvoksKYn1Zw",
-        link4: "https://www.youtube.com/embed/l1sHqVRWo8c?si=ruK7mblnnYInVLZO"
-    }
+        link4: "https://www.youtube.com/embed/l1sHqVRWo8c?si=ruK7mblnnYInVLZO",
+    },
+    title:"100 Days of JavaScript Coding Challenges"
     },
 
     {
         id: 2,
         name: "Music",
         src:"/Images/music.jpg",
+        channelData : "/Images/css.jpg",
+        channelIfram : "https://www.youtube.com/embed/5ccq_nLHneE?si=j7DGWuaPdpWRoyHQ",
+      
         videoLink: {
             link1: "",
             link2: "",
@@ -27,6 +35,9 @@ const YoutubeData = [
         id: 3,
         name: "cartoon",
         src:"/Images/cartoon.jpg",
+        channelData : "/Images/fest.jpg",
+        channelIfram : "https://www.youtube.com/embed/5ccq_nLHneE?si=j7DGWuaPdpWRoyHQ",
+      
         videoLink: {
             link1: "",
             link2: "",
@@ -38,6 +49,8 @@ const YoutubeData = [
         id: 4,
         name: "mixes",
         src:"",
+        channelData : "/Images/server.jpg",
+        channelIfram : "https://www.youtube.com/embed/5ccq_nLHneE?si=j7DGWuaPdpWRoyHQ",
         videoLink: {
             link1: "",
             link2: "",
@@ -49,6 +62,8 @@ const YoutubeData = [
         id: 5,
         name: "T-Series",
         src:"/Images/tseries.jpg",
+        channelData : "/Images/typescript.jpg",
+        channelIfram:"https://www.youtube.com/embed/Xciunyug99U?si=Y2F2q1bX2C2k9lJ1",
         videoLink: {
             link1: "",
             link2: "",
@@ -60,6 +75,8 @@ const YoutubeData = [
         id: 6,
         name: "Test",
         src:"/Images/test.jpg",
+        channelData : "/Images/mern.jpg",
+        channelIfram:"https://www.youtube.com/embed/fSmp7Cv-c_0?si=6ZhxAKrXEVWWCKO1",
         videoLink: {
             link1: "",
             link2: "",
@@ -133,6 +150,7 @@ const ThapaTechnical = [
         tag: "New",
         link : "https://www.youtube.com/embed/lULYNqEwb3w?si=_1PAAlLPfbtf6h4i",
         channelName : "thapatechnical",
+        logo : "thapa sir",
         videoLink: {
             link1: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
             link2: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",

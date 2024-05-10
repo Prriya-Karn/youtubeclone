@@ -1,13 +1,11 @@
-import React, { Fragment, createContext, useEffect, useState} from "react";
+import React, { Fragment, createContext, useState} from "react";
 
 import YoutubeData, { ThapaTechnical, mysirg } from "./ApnaDataBase";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import IFrame from "./IFrame";
 import Chan from "./Chan";
-import { filter } from "lodash";
-import Video, { images, video } from "./Video";
-import Image from "./Image";
-import YoutubeDetail from "./YoutubeDetail";
+import Video from "./Video";
+
 
 const iframe = createContext();
 var filterchannel;
@@ -36,6 +34,7 @@ const YoutubeClone = () =>{
     }
 
     const submitText = (s) => {
+        
         if (s.trim() === "") {
             setClick(click)
         }
@@ -73,7 +72,6 @@ const YoutubeClone = () =>{
     }
 
     const tab = (s) => {
-
         var filterTab = (ThapaTechnical||mysirg).filter((e) => {
             return e.options === s;
         })
@@ -89,6 +87,8 @@ const YoutubeClone = () =>{
 
             setClick(filterchannel)
         }
+
+     
     }
 
     
@@ -113,6 +113,10 @@ const YoutubeClone = () =>{
                 || ((mysirg).map((e) => e.channelName).includes(search) === true)
                 ? 
                 <>
+                <NavLink exact to="/channel">
+                <img src="/Images/thapalogo.png"/>
+                </NavLink>
+                
                     <button onClick={() => tab("watched")}>watched</button>
                     <button onClick={() => tab("unwatched")}>unwatched</button>
                     <button onClick={() => tab("videos")}>videos</button>
@@ -126,8 +130,6 @@ const YoutubeClone = () =>{
                         <button onClick={() => funexpr("cartoon")}>cartoon</button>
                         <button onClick={() => funexpr("mixes")}>mixes</button>
                         <button onClick={() => funexpr("T-series")}>tseries</button>
-
-                      
                     </>
             }
 
@@ -153,9 +155,13 @@ const YoutubeClone = () =>{
                         </Fragment>
                     )
                 }) :
+                <>
                 <Video  
                 click = {click}
                 />
+               
+                </>
+                
             }
             
             
