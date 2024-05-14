@@ -7,7 +7,7 @@ const IFrame = (props) => {
     return(
 <>
 
-        <iframe className="m-5" style={{width:"50rem",height:"30rem",borderRadius:"1rem"}}
+        <iframe className="m-5"
         src={props.link}
         title="YouTube video player"
         >

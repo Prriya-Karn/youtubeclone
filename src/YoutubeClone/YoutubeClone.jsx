@@ -1,20 +1,25 @@
-import React, { Fragment, createContext, useState} from "react";
+import React, { Fragment, createContext, useEffect, useState } from "react";
 
 import YoutubeData, { ThapaTechnical, mysirg } from "./ApnaDataBase";
-import { NavLink} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import IFrame from "./IFrame";
 import Chan from "./Chan";
 import Video from "./Video";
+import Search from "./Search";
+import HomeButtons from "./HomeButtons";
+import TabButtons from "./TabButtons";
+import Posts from "./Posts";
 
 
 const iframe = createContext();
 var filterchannel;
 var filterchannel2;
-const YoutubeClone = () =>{
+const YoutubeClone = () => {
     const [click, setClick] = useState(YoutubeData);
     const [search, setSearch] = useState();
     const [searchData, setSearData] = useState([]);
-
+    const navigate = useNavigate();
+    const [moreDataShow,setmoreDataShow] = useState(false)
     const funexpr = (data) => {
         const filterData = YoutubeData.filter((e) => {
             return (e.name).toUpperCase() === data.toUpperCase();
@@ -28,24 +33,27 @@ const YoutubeClone = () =>{
 
     }
 
+    const all = () => {
+        setClick(YoutubeData)
+    }
+
     const searchText = (event) => {
         const value = event.target.value;
         setSearch(value);
     }
 
     const submitText = (s) => {
-        
+
         if (s.trim() === "") {
             setClick(click)
         }
-        
+
         else {
             const filterSearchData = YoutubeData.filter((e) => {
                 return e.name.toUpperCase() === s.toUpperCase();
             })
 
             setClick(filterSearchData)
-            console.log(searchData)
         }
 
         filterchannel = ThapaTechnical.filter((e) => {
@@ -53,7 +61,6 @@ const YoutubeClone = () =>{
         })
         if (ThapaTechnical.map((e) => e.channelName).includes(search) === true) {
             (setClick(filterchannel))
-            console.log(filterchannel)
             // console.log(true)
         } else {
             // console.log(false)
@@ -72,109 +79,175 @@ const YoutubeClone = () =>{
     }
 
     const tab = (s) => {
-        var filterTab = (ThapaTechnical||mysirg).filter((e) => {
-            return e.options === s;
-        })
-
-        if ((mysirg||ThapaTechnical).map((e) => e.options).includes(s) === true) {
+        var filterTab = (ThapaTechnical).filter((e) => e.options === s)
+            || mysirg.filter((e) => e.options === s)
+        console.log(filterTab)
+        if ((mysirg).map((e) => e.options).includes(s) === true
+            || ThapaTechnical.map((e) => e.options.includes(s) === true)) {
             (setClick(filterTab))
 
             // console.log(filterTab)
             // console.log(true)
         }
 
+        //here is the problem solve later
         if (s === "All") {
 
             setClick(filterchannel)
         }
 
-     
+
     }
 
-    
+
 
 
     // console.log(videos)
-    
-   
 
-    
 
+
+    const clickImage = () => {
+        navigate('/channel')
+    }
+
+    const moreIframe = ()=>{
+        setmoreDataShow(true)
+      }
+console.log(moreDataShow)
+    
 
     return (
         <Fragment>
 
-            <input type="text" className="m-2"
-                onChange={searchText}
-                placeholder="search" />
+            <div className="main-home d-flex">
+                <div className="sidebar">sidebar
+                    <Search
+                        onchangeFun={searchText}
+                        submitText={submitText}
+                        search={search}
+                    />
 
-            {
-                ((ThapaTechnical).map((e) => e.channelName).includes(search) === true) 
-                || ((mysirg).map((e) => e.channelName).includes(search) === true)
-                ? 
-                <>
-                <NavLink exact to="/channel">
-                <img src="/Images/thapalogo.png"/>
-                </NavLink>
-                
-                    <button onClick={() => tab("watched")}>watched</button>
-                    <button onClick={() => tab("unwatched")}>unwatched</button>
-                    <button onClick={() => tab("videos")}>videos</button>
-                    <button onClick={() => tab("shorts")}>shorts</button>
-                    <button onClick={() => tab("All")}>All</button>
-                    
-                    </> :
-                    <>
-                        <button onClick={() => funexpr("javaScript")}>JavaScript</button>
-                        <button onClick={() => funexpr("music")}>music</button>
-                        <button onClick={() => funexpr("cartoon")}>cartoon</button>
-                        <button onClick={() => funexpr("mixes")}>mixes</button>
-                        <button onClick={() => funexpr("T-series")}>tseries</button>
-                    </>
-            }
+                    {
+                        ((ThapaTechnical).map((e) => e.channelName).includes(search) === true)
+                            || ((mysirg).map((e) => e.channelName).includes(search) === true)
+                            ?
+                            <Fragment>
+                                <TabButtons tab={tab} />
+
+                                <div>
+                                    <div className="chanLogo d-flex" onClick={clickImage}>
+                                        <img src="/Images/thapalogo.png" />
+                                        <p>Thapa Technical</p>
+                                    </div>
+                                    <div className="content-chan">
+                                        <p>@ThapaTechnical • 6.63 lakh subscribers</p>
+                                        <p className="sub">Welcome Guys, This channel is all about Website
+                                            Development, Technical, Tips and Tricks, Designs Principle
+                                            and Programming ...</p>
+                                    </div>
+                                    <div className="channel-head">
+                                        <h1>Latest from Thapa Technical</h1>
+                                    </div>
+
+                                </div>
+
+                            </Fragment>
+
+                            :
+                            <Fragment>
+                                <HomeButtons
+                                    HomeFun={funexpr}
+                                    all={all}
+                                />
+                            </Fragment>
+                    }
 
 
 
 
-            <button onClick={() => { submitText(search) }}>submit</button>
+
+                    {/*channel page start from here*/}
+
+                    {
+                        (click === filterchannel || click === filterchannel2)
+                            ? click.map((e) => {
+                              
+                                return (
+                                    <Fragment>
+
+                                   <div className="iframe-chan d-flex">
+
+                                   <iframe className="m-5 chan-iframe"
+                                    src={e.link}
+                                    title="YouTube video player"
+                                    >
+                                </iframe>
+                                 
+                                    <div className="chan-descr">
+                                    <h5>{e.tit}</h5>
+                                    <p>{e.views}</p>
+                                   
+                                    <div className="d-flex chan-logo-1" onClick={clickImage}>
+                                    <img src={e.logo} onClick={clickImage}/>
+                                    <p>{e.channelName}</p>
+                                </div>
+                                <p className="desc">{e.description}</p>
+                                <p className="tag">{e.tag}</p>
+                                    </div>
+                                       
+
+                                        </div>
+                                        
+                                        </Fragment>
+
+                                )
+                            }) :
+                            <Fragment>
+                                <Video
+                                    click={click}
+                                />
+
+                            </Fragment>
+
+                    }
 
 
-            {
-                (click === filterchannel || click === filterchannel2) 
-                ? click.map((e) => {
-                    return (
+                    {
+                    moreDataShow===false?    
+                        (click === filterchannel || click === filterchannel2)?
                         <Fragment>
-                            <h1>{e.channelName}</h1>
-                            <IFrame
-                            link = {e.link}
-                            />
-                            <h5>{e.title}</h5>
-                            <p>{e.views}</p>
+                        <h1 onClick={moreIframe} className="moreData">+6 More</h1>
+                        
+                         </Fragment>:""
+                         :
+                        (("thapatechnical").toLowerCase().includes(search) === true)
+                        || (("mysirg").toLowerCase().includes(search) === true)
+                        ? 
+                        <div>
+                        {
+                            
+                        }
+                        <div className="channel-head double-border">
+                        <h1>Latest posts from Thapa Technical</h1>
+                    </div>
+                     
+                       <Posts/>
+                        <Chan click={click} clickImage = {clickImage} /> 
+                       
+                        </div>
+                        : ""
+                       
+                    }
 
-
-                        </Fragment>
-                    )
-                }) :
-                <>
-                <Video  
-                click = {click}
-                />
-               
-                </>
+                    
+                    
+                  
+                 
                 
-            }
-            
-            
 
-          
-            {
-               (("thapatechnical").toLowerCase().includes(search)===true)
-               || (("mysirg").toLowerCase().includes(search)===true)
-               ? <Chan click ={click}/>:""
-            }
-
-
-            
+                   
+                </div>
+            </div>
         </Fragment>
     )
 }

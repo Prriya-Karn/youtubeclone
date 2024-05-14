@@ -26,7 +26,7 @@ const subImg = [
 const ChannelPage = () => {
     const navigate = useNavigate()
     const [channel, setchannel] = useState(YoutubeData);
-    const [sub, setSub] = useState(false);
+    const [sub, setSub] = useState([]);
     const chanFun = (id) => {
         const filterchan = YoutubeData.filter((e) => {
             return e.id === id
@@ -36,15 +36,14 @@ const ChannelPage = () => {
         navigate(`/chandata/${id}`)
     }
 
-    console.log(channel)
+
     const all = (id) => {
         const filtericon = subImg.find((e) => {
             return e.id === id;
         })
 
-        setSub(filtericon)
-
-
+        setSub(filtericon);
+       
     }
 
     console.log(sub)
@@ -62,15 +61,29 @@ const ChannelPage = () => {
                 </NavLink>
 
                 <div className="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        {sub.name === "Unsubscribe" ? <>
-                            Subscribe
-                        </> : <>
-                            <img src={sub.img} />
-                            Subscribed
-                        </>
-                        }
-                    </button>
+                    <button className="btn btn-secondary dropdown-toggle" 
+                  
+                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                       {
+                        sub.length===0?
+                        <div>
+                        <img src={sub.img} />
+                        Subscribe
+                        </div>
+                       :
+                       sub.name==="Unsubscribe"?<>
+                       Subscribe
+                       </>
+
+                       :
+                       <div>
+                       <img src={sub.img} />
+                       Subscribed
+                       </div>
+                    }
+                    
+                           
+                        </button>
                     <ul className="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
 
                         {
@@ -109,3 +122,4 @@ const ChannelPage = () => {
 }
 
 export default ChannelPage;
+

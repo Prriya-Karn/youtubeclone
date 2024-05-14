@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 import './YoutubeClone/YoutubeClone.css';
+import TexttoSpeech from "./YoutubeClone/TextToSpeech";
 
 
 ReactDOM.render(
@@ -14,7 +15,6 @@ ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
-
 
   document.getElementById('root')
 )

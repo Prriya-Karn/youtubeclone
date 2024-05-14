@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import YoutubeDetail from "./YoutubeDetail";
 import YoutubeData from "./ApnaDataBase";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // const images = [
 
@@ -20,19 +20,19 @@ import {useNavigate} from 'react-router-dom';
 //   ]
 
 
-const Video = ({click}) => {
+const Video = ({ click }) => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(YoutubeData);
-console.log(click)
+  console.log(click)
 
   const handleClick = (imageId) => {
     // const image = YoutubeData.find(image => image.id === imageId);
     // // console.log("Selected Image:", image);
     // setSelectedImage(image);
     navigate(`/image/${imageId}`)   //path="/image/:id" 
-};
+  };
   // console.log(selectedImage)
- 
+
 
 
   //   const [vide,setvide] = useState([]);
@@ -46,15 +46,25 @@ console.log(click)
   // console.log(vide)
   return (
     <>
-
-      {
-        click.map(image => (
-          <div key={image.id} onClick={() => handleClick(image.id)}>
-            <img src={image.src} alt={image.name} />
-            <h1>{image.name}</h1>
-          </div>
-        ))
-      }
+      <div className="container d-flex home-img">
+        <div className="row">
+          {
+            click.map(image => (
+              <div key={image.id} className="col-md-12 col-lg-4 main-img" onClick={() => handleClick(image.id)}>
+                <img src={image.src} className="img-fluid" alt={image.name} />
+                <div className="desc">
+                  <img src={image.logo} />
+                  <h1>{image.tit}</h1>
+                </div>
+                <div className="subs">
+                  <p>{image.channelName}</p>
+                  <p>{image.subscribers}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </>
   )
 }

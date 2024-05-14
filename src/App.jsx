@@ -9,6 +9,7 @@ import YoutubeDetail from "./YoutubeClone/YoutubeDetail";
 import YoutubeData from "./YoutubeClone/ApnaDataBase";
 import ChannelPage from "./YoutubeClone/ChannelPage";
 import ChannelData from "./YoutubeClone/ChannelData";
+import TexttoSpeech from "./YoutubeClone/TextToSpeech";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
         element={<YoutubeDetail youtubedata = {YoutubeData} />} />
         <Route exact path = "/channel"  element = {<ChannelPage/>}/>
         <Route exact path = "/chandata/:id" element={<ChannelData/>}/>
-
+        <Route exact path = "/mic" element= {<TexttoSpeech/>}/>
       </Routes>
      
     </Fragment>
