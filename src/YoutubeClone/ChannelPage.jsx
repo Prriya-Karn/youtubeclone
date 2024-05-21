@@ -1,6 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
-import YoutubeData, { ThapaTechnical } from "./ApnaDataBase";
-import { NavLink, useNavigate } from "react-router-dom";
+import YoutubeData, { ThapaTechnical, mysirg } from "./ApnaDataBase";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { click } from "@testing-library/user-event/dist/click";
+import Search from "./Search";
+import Subscribe from "./Subscribe";
 const subImg = [
     {
         img: "/Images/all.png",
@@ -25,98 +28,132 @@ const subImg = [
 ]
 const ChannelPage = () => {
     const navigate = useNavigate()
-    const [channel, setchannel] = useState(YoutubeData);
-    const [sub, setSub] = useState([]);
-    const chanFun = (id) => {
-        const filterchan = YoutubeData.filter((e) => {
-            return e.id === id
-        })
+    const [channel, setchannel] = useState([]);
+    const { name } = useParams(); // Ensure 'name' matches the route definition
 
+
+    const chanFun = (channelID,name) => {
+        
+        const filterchan = name==="thapatechnical"?ThapaTechnical.find((e) =>e.IDData === channelID):name==="mysirg"?mysirg.find((e)=>e.IDData===channelID):""
         setchannel(filterchan)
-        navigate(`/chandata/${id}`)
-    }
+        navigate(`/chandata/${channelID}/${name}`)
+ }
 
-
-    const all = (id) => {
-        const filtericon = subImg.find((e) => {
-            return e.id === id;
-        })
-
-        setSub(filtericon);
-       
-    }
-
-    console.log(sub)
+   
     return (
         <>
-            <div className="bg-dark text-white" style={{ width: "100%", height: "50%" }}>
-                <h1>Qrcode</h1>
-            </div>
-            <button>Home</button>
-            <button>video</button>
-            <button>community</button>
-            <div>
-                <NavLink exact to="/channel">
-                    <img src="/Images/thapalogo.png" />
-                </NavLink>
+        <Search/>
+      
+    {
+        name==="thapatechnical"?<Fragment>
+        <div className="headImageChan">
+        <img src="/Images/channelPageImage.png"/>
+        </div>
+        
+        <div className="channelLogo d-flex">
+        <NavLink exact to="/channel">
+        <img src="/Images/thapalogo.png" />
+        </NavLink>
 
-                <div className="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" 
-                  
-                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                       {
-                        sub.length===0?
-                        <div>
-                        <img src={sub.img} />
-                        Subscribe
-                        </div>
-                       :
-                       sub.name==="Unsubscribe"?<>
-                       Subscribe
-                       </>
+        <div className="channelName">
+    <h1>Thapa Technical</h1>
+    <p>@ThapaTechnical ‧ 6.64 lakh subscribers ‧ 1.9K videos</p>
+    <p>Welcome Guys, This channel is all about Website Development, Technical, Tips and Tricks,</p>
+    <p> <NavLink className="navlink" exact to="https://thapatechnical.shop/" target="_blank">thapatechnical.shop </NavLink>
+    and 3 more links</p>
+    </div>
 
-                       :
-                       <div>
-                       <img src={sub.img} />
-                       Subscribed
-                       </div>
-                    }
-                    
-                           
-                        </button>
-                    <ul className="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+        </div>
 
-                        {
-                            subImg.map((e) => {
-                                return (
-                                    <Fragment>
-                                        <li onClick={() => all(e.id)}><a className="dropdown-item text-white" href="#">
-                                            <img src={e.img} />
-                                            {e.name}</a></li>
-                                    </Fragment>
-                                )
-                            })
-                        }
+    
+        </Fragment>
+     
+       :name==="mysirg"?<Fragment>
+       <div className="headImageChan">
+       <img src="/Images/channelPageImageMysirg.png"/>
+       </div>
+    
+       
 
-                        {
-                            sub.name === "Unsubscribe" ? alert("unsubscribe")
-                                : ""
-                        }
+       <div className="channelLogo d-flex">
+       <NavLink exact to="/channel">
+       <img src="/Images/mysirgLogo.png" />
+       </NavLink>
 
-                    </ul>
-                </div>
+       <div className="channelName">
+   <h1>MySirG</h1>
+   <p>@MySirG ‧ 8.73 lakh subscribers ‧ 1.6K videos</p>
+   <p>This channel is all about learning programming languages, Career Guidance and Motivation</p>
+     <p> <NavLink className="navlink" exact to="https://thapatechnical.shop/" target="_blank">thapatechnical.shop </NavLink>
+   and 3 more links</p>
+   </div>
 
-            </div>
+       </div>
+
+       </Fragment>
+         :""
+    }
+            <Subscribe
+           
+
+            />
+          
+<div className="chanTabs">
+<button className="btn">Home</button>
+<button className="btn">Videos</button>
+<button className="btn">Live</button>
+<button className="btn">Community</button>
+</div>
+
+
+          <div className="d-flex container-fluid chan-card">
+          <div className="row">
             {
-                channel.map((e) => {
-                    return (
-                        <>
-                            <img src={e.channelData} onClick={() => chanFun(e.id)} />
-                        </>
-                    )
-                })
-            }
 
+                name==="thapatechnical"?
+                ThapaTechnical.map((e)=>
+                    <Fragment>
+                <div className="inner-card-chain col-lg-4 col-md-12">
+                <img src={e.channelData} 
+                onClick={() => chanFun(e.IDData,e.channelName)} />
+                <div className="content-chan">
+                <p className="chantit">{e.channeltit.length>=10
+                    ?
+                    e.channeltit.slice(0,40)+"...":""}</p>
+                <p className="namechan">{e.chanName}</p>
+                <p className="viewchan">{e.chanView}</p>
+                </div>
+                </div>  
+                </Fragment>
+               
+                    
+            )
+            
+            :
+                name === "mysirg"?mysirg.map((e)=>
+                <Fragment>
+                <div className="inner-card-chain col-lg-4 col-md-12">
+                <img src={e.channelData} 
+                onClick={() => chanFun(e.IDData,e.channelName)} />
+                <div className="content-chan">
+                <p className="chantit">{e.channeltit.length>=100
+                    ?
+                    e.channeltit.slice(0,40)+"...":""}</p>
+                <p className="namechan">{e.chanName}</p>
+                <p className="viewchan">{e.chanView}</p>
+                </div>
+                </div>  
+                
+                </Fragment>    
+                
+                
+                )
+                :
+                ""
+            }
+            </div>
+         
+            </div>
         </>
     )
 }

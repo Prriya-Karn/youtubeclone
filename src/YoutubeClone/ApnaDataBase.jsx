@@ -98,12 +98,22 @@ const YoutubeData = [
 const ThapaTechnical = [
    
     {
+
+               subscribers:"6.63 lakh subscribers",
+        channelData : "/Images/download.jpg",
+        IDData : "1",
+        channeltit:"HTML Complete Tutorial for Beginners in Hindi🔥Free Notes + Codes",
+        chanView:"3.6 lakh views - 8 months ago",
+        chanName:"Thapa Technical",
+        chanDesc : "🚀 Become an HTML Pro in One Video in Hindi 🎉 Welcome to our Complete HTML Course Tutorial for Beginners in Hindi, where you'll master Basic to Advanced HTML and the art of creating stunning websites using HTML from scratch. Whether you're a newbie or a seasoned coder, this one-stop HTML tutorial has you covered.",
+        comments:"962",
+       
         id:"2",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
         description : "Welcome, on a 100-day JavaScript journey with me! Join me as I tackle a new coding challenge every day, exclusively using JavaScript.",
         tag : "New",
-        link : "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
+        link : "https://www.youtube.com/embed/5ccq_nLHneE?si=kmrfGnKBqjREhajw",
         channelName : "thapatechnical",
         videoLink: {
             link1: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
@@ -116,13 +126,23 @@ const ThapaTechnical = [
         options:"All"
         
     },
-    {
+
+
+    {        subscribers:"",
+        channelData : "/Images/css.jpg",
+        IDData : "2",
+        channeltit:"Complete CSS Tutorial for Beginners in Hindi 🎓 Free Notes & Codes ",
+        chanView:"2.4 lakh views - 7 months ago",
+        chanName:"Thapa Technical",
+        chanDesc : "2,45,230 views  6 Oct 2023 🧑‍💻🔥Watch Part-2 of  World Best CSS Full Course:   • CSS Complete Tutorial in Hindi🔥10+ An...   ✅ 🚀 Become a CSS Master in One Video in Hindi 🎉Welcome to our World Best Complete CSS Course Tutorial for Beginners in Hindi, where you'll master Basic to Advanced CSS and the art of styling websites using CSS. Whether you're a beginner or an experienced CSS developer, this comprehensive CSS tutorial has you covered.",
+        comments:"962",
+      
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
         description : "Welcome, on a 100-day JavaScript journey with me! Join me as I tackle a new coding challenge every day, exclusively using JavaScript.",
         tag : "New",
-        link : "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
+        link : "https://www.youtube.com/embed/MSICFljRcb4?si=B_4_zC51cbbTbbBQ",
         channelName : "thapatechnical",
         logo : "/Images/thapalogo.png",
         videoLink: {
@@ -135,13 +155,19 @@ const ThapaTechnical = [
         options:"shorts",
        
     },
-    {
-        id:"3",
+    {        subscribers:"",
+        channelData : "/Images/fest.jpg",
+        IDData : "3",
+        channeltit:"Create Animated Website Using HTML5 & CSS3 in Hindi",
+        chanView:"10 lakh views - 4 years ago",
+        chanName:"Thapa Technical",
+        chanDesc : "",
+       id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
         description : "Welcome, on a 100-day JavaScript journey with me! Join me as I tackle a new coding challenge every day, exclusively using JavaScript.",
         tag : "New",
-        link : "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
+        link : "https://www.youtube.com/embed/LO4YTml3IAQ?si=V1EgrFYCqlJ5pcwZ",
         channelName : "thapatechnical",
         videoLink: {
             link1: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
@@ -153,13 +179,20 @@ const ThapaTechnical = [
         logo : "/Images/thapalogo.png"
         
     },
-    {
+    {        subscribers:"",
+        channelData : "/Images/typescript.jpg",
+        IDData : "4",
+       channeltit:"Typescript Tutorial in Hindi",
+        chanView:"83k views - 10 months ago",
+     chanName:"Thapa Technical",
+     chanDesc : "",
+
         id:"1",
         tit:"My Real Story🔥The Importance of Domain & Hosting Ownership🤞Transfer Domain within Hostinger",
         views : "379 views",
         description : "Welcome, Your business's lifeline? Your domain and hosting. Discover why owning them matters for your security and success.",
         tag: "New",
-        link : "https://www.youtube.com/embed/lULYNqEwb3w?si=_1PAAlLPfbtf6h4i",
+        link : "https://www.youtube.com/embed/Xciunyug99U?si=dz27z1otGjSC-apH" ,
         channelName : "thapatechnical",
         logo : "/Images/thapalogo.png",
         videoLink: {
@@ -173,13 +206,21 @@ const ThapaTechnical = [
         logo : "/Images/thapalogo.png"
         
     },
-    {
+    {        subscribers:"",
+        channelData : "/Images/mern.jpg",
+        IDData : "5",
+        channelLink : "",
+        channeltit:"MERN Stack Tutorial in Hindi ✅ React, Node.js, Express.js & MongoDB",
+        chanView:"100k views - 12 months ago",
+     chanName:"Thapa Technical",
+     chanDesc : "",
+
         id:"2",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
         description : "Welcome, on a 100-day JavaScript journey with me! Join me as I tackle a new coding challenge every day, exclusively using JavaScript.",
         tag : "New",
-        link : "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
+        link :"https://www.youtube.com/embed/IymPq7ik29k?si=7XI8jkhTZp4oPZ9O",
         channelName : "thapatechnical",
         videoLink: {
             link1: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
@@ -193,12 +234,22 @@ const ThapaTechnical = [
         
     },
     {
+        channelData:"/Images/cmd.png",
+        IDData : "6",
+     
+
+        channeltit:"Learn CMD Commands In One Video for all Users in Hindi 2019",
+        
+        chanView:"17lakh views - 5 years ago",
+     chanName:"Thapa Technical",
+     chanDesc : "",
+
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
         description : "Welcome, on a 100-day JavaScript journey with me! Join me as I tackle a new coding challenge every day, exclusively using JavaScript.",
         tag : "New",
-        link : "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
+        link : "https://www.youtube.com/embed/QISdBQDEiJ8?si=aE2tHkbxA6vttG2E" ,
         channelName : "thapatechnical",
         videoLink: {
             link1: "https://www.youtube.com/embed/l1sHqVRWo8c?si=vjmaLDExpuaKJtwm",
@@ -217,7 +268,16 @@ const ThapaTechnical = [
 
 const mysirg = [
    
-    {
+    {        subscribers:"8.73 lakh subscribers",
+        channelData : "/Images/mp1.png",
+        IDData : "1",
+        channeltit:"",
+        
+        chanView:"",
+     chanName:"MySirG",
+     chanDesc : "",
+
+
         id:"2",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -231,10 +291,15 @@ const mysirg = [
             link3: "https://www.youtube.com/embed/fV_kGneug9c?si=0uu954u32eKLSwgn",
             link4: "https://www.youtube.com/embed/fV_kGneug9c?si=0uu954u32eKLSwgn"
         },
-        options:"All"
+        options:"All",
+        logo : "/Images/mysirgLogo.png"
         
     },
     {
+                subscribers:"",
+        channelData : "/Images/mp2.png",
+        IDData : "2",
+        
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -248,10 +313,15 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        options : "watched"
+        options : "watched",
+        logo : "/Images/mysirgLogo.png"
         
     },
     {
+                subscribers:"",
+        channelData : "/Images/mp3.png",
+        IDData : "3",
+        
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -265,10 +335,15 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        options : "unwatched"
+        options : "unwatched",
+        logo : "/Images/mysirgLogo.png"
         
     },
     {
+                subscribers:"",
+        channelData : "/Images/mp4.png",
+        IDData : "4",
+        
         id:"1",
         tit:"My Real Story🔥The Importance of Domain & Hosting Ownership🤞Transfer Domain within Hostinger",
         views : "379 views",
@@ -282,10 +357,14 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        options:"shorts"
+        options:"shorts",
+        logo : "/Images/mysirgLogo.png"
         
     },
-    {
+    {        subscribers:"",
+        channelData : "/Images/mp5.png",
+        IDData : "5",
+        
         id:"2",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -299,10 +378,15 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        options:"videos"
+        options:"videos",
+        logo : "/Images/mysirgLogo.png"
         
     },
     {
+                subscribers:"",
+        channelData : "/Images/mp6.png",
+        IDData : "6",
+        
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -316,7 +400,8 @@ const mysirg = [
             link3: "",
             link4: ""
         },
-        options : "new"
+        options : "new",
+        logo : "/Images/mysirgLogo.png"
         
     },
   

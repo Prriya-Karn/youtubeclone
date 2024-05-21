@@ -115,7 +115,7 @@ return starArr
 
 }
 
-console.log(generateBarChart([5,3,9,2]));
+// `console.log(generateBarChart([5,3,9,2]));`
 // output:-
 // 1 : *****
 // 2 : ***
@@ -123,3 +123,31 @@ console.log(generateBarChart([5,3,9,2]));
 // 4 : **
 
 
+
+
+
+
+// const name = "priya";
+// console.log(name.slice(0,1))
+// console.log(name.substr(0,1))
+
+// const content = (text)=>{
+   
+//     if(text.length>=10){
+//         return text.substr(0,10)+"..."
+//     }else{
+//         return text;
+//     }
+// }
+
+// console.log(content("my name is priya karn here i want to create project"));
+
+
+const thapa = [
+    {
+        name:["priya"]
+    }
+]
+
+thapa[0].name.push("ankita");
+console.log(thapa)

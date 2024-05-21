@@ -14,7 +14,7 @@
     width: 32rem;
     text-align: center;
     margin-left: 30rem;
-    margin-top: -1rem;
+    margin-top: -10rem;
     border-radius: 2rem;
     border: 1px solid #888888;
     color:#888888;
@@ -90,14 +90,16 @@
 }
 
 .sidebar{
-    background-color: aquamarine;
-    width: 15rem;
-    height: 50rem;
+  background-color: #2998F7;
+  width: 5rem;
+  height: 90rem;
 }
 
-.main-home{
-    gap: 3rem;
 
+
+.main-home{
+ 
+    gap: 3rem;
 }
 
 .home-img{
@@ -149,8 +151,7 @@
 .subs{
     margin-left: 1rem;
     width: 15rem;
-    margin-top: 1rem;
-    
+    margin-top: 1rem; 
 }
 
 .subs p{
@@ -281,3 +282,489 @@ cursor: pointer;
    color: #888888;
    margin-bottom: 10rem;
 }
+.MainScroll{
+    overflow-y: scroll;
+}
+
+.Main{ 
+    display: flex;
+    margin-left: 14rem;
+
+    width: 100rem;
+    overflow-y: auto;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.main-card{
+display: block;
+    margin-top: 2rem;
+    border:1px solid #A0A5AA;
+    margin-left: 1rem;
+    background-color:#272727;
+    border-radius: 1rem;
+    height: 12rem;
+    width:30rem;
+}
+
+.postImage{
+    margin-top: -2rem;
+    width: 6rem;
+    height: 6rem;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    transition: all 0.6s;
+    cursor: pointer;
+}
+.postImage:hover{
+    transform: scale(0.9);
+}
+.card-body{
+   gap: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 40rem;
+    height: 8rem;
+}
+
+.card-body .content{
+    width: 20rem;
+    margin-left: -1rem;
+    font-size: 15px;
+}
+
+.LogoContent{
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.LogoContent img{
+    border-radius: 50%;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: -0.5rem;
+    line-height: 2px;
+    cursor: pointer;
+}
+.LogoContent p{
+    text-transform: capitalize;
+    margin-top: 5px;
+}
+
+.like-dislike{
+    height: 2rem;
+    margin-top: -3rem;
+}
+.btn-like-dislike{
+    cursor: pointer;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+.btn-like-dislike img:hover{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+.btn-like-dislike img{
+    height: 1rem;
+    width: 1rem;
+    transition: all 0.6s;
+}
+
+.dislike{
+    margin-top: 0.2rem;
+}
+.comment{
+    margin-top: -1rem;
+    margin-left: 20rem;
+    gap: 2rem;
+    width: 5rem;
+}
+.comment img{
+    height: 1rem;
+    width: 1rem;
+    transition: all 0.6s;
+}
+
+.comment img:hover{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+
+.headImageChan{
+    margin-top: -4rem;
+    margin-left: 20rem;
+}
+
+.headImageChan img{
+    background-color: orange;
+    width: 70rem;
+    height: 11rem;
+    border-radius: 1rem;
+}
+.channelLogo{
+    margin-top: 3rem;
+    margin-left: 20rem;
+    gap: 2rem;
+    width: 80rem;
+}
+.channelLogo img{
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+}
+
+.channelName{
+    width: 70rem;
+    height: 20rem;
+}
+
+.channelName p{
+    color:#888888;
+}
+
+.channelName h1{
+    font-weight: 700;
+}
+
+.channelName .navlink{
+    text-decoration: none;
+    color:#2998F7;
+}
+
+.subs-main button{
+    width: 2rem;
+    height: 2rem;
+}
+
+.dropdown-main{
+
+    width: 20rem;
+    margin-top: -9rem;
+    margin-left: 32rem;
+}
+
+.dropdown button{
+   width: 10rem;
+   background-color: #272727;
+   border-radius: 2rem;
+   border: none;
+}
+
+
+.chan-card{
+    width: 70rem;
+    margin-left: 20rem;
+    margin-top: 5rem;
+}
+.inner-card-chain{
+    margin-top: 1rem;
+}
+
+.chan-card img{
+    height: 10rem;
+    width: 18rem;
+    border-radius: 0.8rem;
+    cursor:pointer;
+    transition: all 0.6s;
+}
+.chan-card img:active{
+    transform: scale(0.9);
+}
+
+
+.chanTabs{
+    width: 70rem;
+    margin-top: 2rem;
+    margin-left: 20rem;
+    border-bottom: 1px solid #272727;
+    padding-top: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.chanTabs button{
+    color:#AAAAAA;
+    border-radius: 0;
+    border: none;
+    font-weight: bold;
+}
+
+.chanTabs button:focus{
+    border-bottom: 3px solid white;
+    color:white;
+}
+.chanTabs button:active{
+    border-bottom: 3px solid #343333;
+}
+
+
+.content-chan{
+    margin: 2rem;
+    width: 15rem;
+    margin-left: 1rem;
+    border: 1px solid black;
+}
+
+
+
+.chantit{
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    margin-top: -1rem;
+}
+
+.namechan,.viewchan{
+    font-size: 10px;
+    margin-top: -1rem;
+}
+
+
+.mainchandata{
+    width: 80rem;
+    margin-left: 15rem;
+
+display: flex;
+}
+.iframe{
+    width: 50rem;
+    height: 30rem;
+    margin-left: 0;
+    border-radius: 1rem;
+  }
+
+.btnchandata{
+margin-left: 1rem;
+    width: 30rem;
+    height: 5rem;
+    margin-top: 1rem;
+}
+
+.btnchandata button{
+    margin-left: 1rem;
+    background-color:#343333;
+    color: white;
+    font-weight: 600;
+}
+.btnchandata button:hover{
+    background-color:#272727;
+}
+.btnchandata button:focus{
+    background-color: white;
+    color: black;
+}
+
+.videochan{
+    width: 50rem;
+    height: 50rem;
+}
+.videochan .channeltit{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.commentchan{
+    /* background-color: orange; */
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.commentchan p{
+    margin-top: 0.5rem;
+}
+
+.commentchan .chanl{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+.joinchan{
+   margin-top: 0.1rem;
+    width: 2rem;
+}
+.chansubs{
+    width: 10rem;
+    margin-left: -27rem;
+    margin-top: 7rem;
+}
+
+.joinbutt{
+    border-radius: 2rem;
+    width: 4rem;
+    height: 2rem;
+    line-height: 1rem;
+    text-align: center;
+    margin-top: 0.3rem;
+    background-color: white;
+}
+
+.subschan{
+    margin-left: 4rem;
+    font-size: 12px;
+    color:#888888;
+    margin-top: -1rem;
+}
+.likedislike{
+    margin-left: 13rem;
+border-radius: 1rem;
+height: 2.2rem;
+background-color: #272727;
+    margin-top: 0.3rem;
+}
+
+
+.likedislike .like{
+    background-color: #272727;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    line-height: 1rem;
+    height: 2.2rem;
+    width: 6rem;
+    border-right: 1px solid white;
+    
+}
+
+.likedislike .dislike{
+    border: none;
+    cursor: pointer;
+    background-color: #272727;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: white;
+
+    line-height: 1rem;
+    height: 2rem;
+    width: 5rem;
+}
+
+.likedislike .dislike img{
+    border: none;
+    cursor: pointer;
+    height: 1rem;
+}
+
+.likedislike .like img{
+    border: none;
+    cursor: pointer;
+    height: 1rem;
+
+}
+
+.likedislike .like span{
+    margin-left: 0.5rem;
+    margin-top: -0.5rem;
+}
+
+.share button{
+    line-height: 1rem;
+    background-color: #272727;
+    border-radius: 1rem;
+    margin-top: 0.3rem;
+    height: 2.2rem;
+    width: 7rem;
+    color: white;
+}
+
+.share button:hover{
+    background-color:#343333;
+
+}
+
+.share img{
+    margin-left: -1rem;
+}
+
+.share span{
+    margin-left: 0.2rem;
+    font-size: 1rem;
+}
+
+.download{
+    margin-top: 0.5rem;
+}
+
+.download img{   
+    width: 1.2rem;
+    height: 1.2rem;
+ cursor: pointer;
+}
+
+
+
+.chanDesc{
+  
+    background-color: #343333;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 15px;
+}
+
+.moredesc{
+    border: none;
+    position: relative;
+    top: -1.9rem;
+    left: 45rem;
+    color:#2998F7;
+}
+
+.lessdesc{
+    border: none;
+    color:#2998F7;
+    position: relative;
+    top: -0.1rem;
+}
+
+.comment{
+    font-size: 15px;
+    width: 50rem;
+    margin-top: -0.2rem;
+    margin-left: -0.1rem;
+    border-bottom: 1px solid #272727;
+}
+
+.message img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+.proName{
+    text-transform: capitalize;
+    margin-left: 1rem;
+}
+
+.commentAdd{
+    margin-top: 1rem;
+    border-bottom: 1px solid #272727;
+}
+
+.commentAdd input{
+    background-color: transparent;
+    border: none;
+    color: #888888;
+
+}
+
+.commentAdd input:focus{
+    border: none;
+    outline: none;
+}
+
+
+.commentAdd button{
+    margin-left: 30rem;
+    background-color: #272727;
+    border-radius: 2rem;
+    color: #888888;
+}
+
+.commentAdd button:hover{
+    background-color: #343333;
+}
+
+

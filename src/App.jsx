@@ -10,10 +10,12 @@ import YoutubeData from "./YoutubeClone/ApnaDataBase";
 import ChannelPage from "./YoutubeClone/ChannelPage";
 import ChannelData from "./YoutubeClone/ChannelData";
 import TexttoSpeech from "./YoutubeClone/TextToSpeech";
+import SideBar from "./YoutubeClone/SideBar";
 
 const App = () => {
   return (
     <Fragment>
+    
       <Routes>
         <Route exact path="/" element={<YoutubeClone />} />
        
@@ -22,11 +24,13 @@ const App = () => {
         <Route exact path = "/video"  element = {<Video/>}/>
         <Route path="/image/:id" 
         element={<YoutubeDetail youtubedata = {YoutubeData} />} />
-        <Route exact path = "/channel"  element = {<ChannelPage/>}/>
-        <Route exact path = "/chandata/:id" element={<ChannelData/>}/>
+        <Route exact path = "/channelpage/:name"  element = {<ChannelPage/>}/>
+        <Route exact path = "/chandata/:ID/:name" element={<ChannelData/>}/>
+     
         <Route exact path = "/mic" element= {<TexttoSpeech/>}/>
       </Routes>
-     
+  
+
     </Fragment>
   )
 }
