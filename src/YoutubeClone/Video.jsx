@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import YoutubeDetail from "./YoutubeDetail";
 import YoutubeData from "./ApnaDataBase";
 import { useNavigate } from 'react-router-dom';
+import CardChannel from "./CardChannel";
 
 // const images = [
 
@@ -20,30 +21,13 @@ import { useNavigate } from 'react-router-dom';
 //   ]
 
 
-const Video = ({ click }) => {
+const Video = ({ click}) => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(YoutubeData);
   console.log(click)
 
   const handleClick = (imageId) => {
-    // const image = YoutubeData.find(image => image.id === imageId);
-    // // console.log("Selected Image:", image);
-    // setSelectedImage(image);
     navigate(`/image/${imageId}`)   //path="/image/:id" 
   };
-  // console.log(selectedImage)
-
-
-
-  //   const [vide,setvide] = useState([]);
-  //   const filterimg = (img)=>{
-  //     const filterImage = image.filter((e)=>{
-  //       return e.name === img;
-
-  //     })
-  //     setvide(filterImage)
-  //   }
-  // console.log(vide)
   return (
     <>
       <div className="container d-flex home-img">
@@ -56,13 +40,16 @@ const Video = ({ click }) => {
                   <img src={image.logo} />
                   <h1>{image.tit}</h1>
                 </div>
-                <div className="subs">
-                  <p>{image.channelName}</p>
+                <div className="subsvideo">
+                  <p className="videoTit">{image.channelName}</p>
                   <p>{image.subscribers}</p>
                 </div>
               </div>
             ))
           }
+
+
+       
         </div>
       </div>
     </>

@@ -4,44 +4,41 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { click } from "@testing-library/user-event/dist/click";
 import Search from "./Search";
 import Subscribe from "./Subscribe";
-const subImg = [
-    {
-        img: "/Images/all.png",
-        name: "All",
-        id: 1
-    },
-    {
-        img: "/Images/person.png",
-        name: "Personalize",
-        id: 2
-    },
-    {
-        img: "/Images/none.png",
-        name: "None",
-        id: 3
-    },
-    {
-        img: "/Images/unsub.png",
-        name: "Unsubscribe",
-        id: 4
-    }
-]
+import SideBar from "./SideBar";
+import CardChannel from "./CardChannel";
+// const subImg = [
+//     {
+//         img: "/Images/all.png",
+//         name: "All",
+//         id: 1
+//     },
+//     {
+//         img: "/Images/person.png",
+//         name: "Personalize",
+//         id: 2
+//     },
+//     {
+//         img: "/Images/none.png",
+//         name: "None",
+//         id: 3
+//     },
+//     {
+//         img: "/Images/unsub.png",
+//         name: "Unsubscribe",
+//         id: 4
+//     }
+// ]
 const ChannelPage = () => {
-    const navigate = useNavigate()
-    const [channel, setchannel] = useState([]);
+
     const { name } = useParams(); // Ensure 'name' matches the route definition
 
-
-    const chanFun = (channelID,name) => {
-        
-        const filterchan = name==="thapatechnical"?ThapaTechnical.find((e) =>e.IDData === channelID):name==="mysirg"?mysirg.find((e)=>e.IDData===channelID):""
-        setchannel(filterchan)
-        navigate(`/chandata/${channelID}/${name}`)
- }
 
    
     return (
         <>
+        <div className="main-home d-flex">
+        <div className="sidebar">
+        <SideBar/>
         <Search/>
       
     {
@@ -105,54 +102,8 @@ const ChannelPage = () => {
 <button className="btn">Community</button>
 </div>
 
-
-          <div className="d-flex container-fluid chan-card">
-          <div className="row">
-            {
-
-                name==="thapatechnical"?
-                ThapaTechnical.map((e)=>
-                    <Fragment>
-                <div className="inner-card-chain col-lg-4 col-md-12">
-                <img src={e.channelData} 
-                onClick={() => chanFun(e.IDData,e.channelName)} />
-                <div className="content-chan">
-                <p className="chantit">{e.channeltit.length>=10
-                    ?
-                    e.channeltit.slice(0,40)+"...":""}</p>
-                <p className="namechan">{e.chanName}</p>
-                <p className="viewchan">{e.chanView}</p>
-                </div>
-                </div>  
-                </Fragment>
-               
-                    
-            )
-            
-            :
-                name === "mysirg"?mysirg.map((e)=>
-                <Fragment>
-                <div className="inner-card-chain col-lg-4 col-md-12">
-                <img src={e.channelData} 
-                onClick={() => chanFun(e.IDData,e.channelName)} />
-                <div className="content-chan">
-                <p className="chantit">{e.channeltit.length>=100
-                    ?
-                    e.channeltit.slice(0,40)+"...":""}</p>
-                <p className="namechan">{e.chanName}</p>
-                <p className="viewchan">{e.chanView}</p>
-                </div>
-                </div>  
-                
-                </Fragment>    
-                
-                
-                )
-                :
-                ""
-            }
+<CardChannel/>
             </div>
-         
             </div>
         </>
     )

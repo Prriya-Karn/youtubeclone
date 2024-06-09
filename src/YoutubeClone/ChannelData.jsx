@@ -48,19 +48,21 @@ const ChannelData = () => {
                         <div className="joinchan">
                             <button className="btn joinbutt">Join</button>
                             <div className="chansubs">
-                                <Subscribe />
+                                <Subscribe/> 
                             </div>
                         </div>
                         <div className="likedislike">
                             <button className="btn like">
-                                <img src="/Images/Like.png" /><span>11k</span></button>
-                            <button className="btn dislike"><img src="/Images/dislike.png" /></button>
+                                <img src="/Images/Like.png" />
+                                <span>11k</span></button>
+                            <button className="btn dislike">
+                            <img src="/Images/dislike.png" /></button>
                         </div>
 
                         <div className="share">
                             <button className="btn"><img src="/Images/share.png" /><span>Share</span></button>
                         </div>
-                        <div className="download">
+                        <div className="download" onClick={()=>console.log("clicked")}>
                             <img src="/Images/download.png" />
                         </div>
 
@@ -80,6 +82,8 @@ const ChannelData = () => {
 
 
                     </div>
+
+                    
                     <div className="commentAdd">
                         <input type="text" placeholder="Add a comment" onChange={writeCom} />
                         <button className="btn" onClick={commentclick}>Comment</button>
@@ -87,7 +91,7 @@ const ChannelData = () => {
                     <div>
                   
                         <div className="message d-flex mt-4">
-                    <img src="/Images/logo.png"/>
+              
                     <p className="proName"></p>
                     <p className="comment">{clickCom}</p>
                     </div>

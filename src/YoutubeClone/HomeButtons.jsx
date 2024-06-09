@@ -10,7 +10,7 @@ const HomeButtons = ({ HomeFun,all }) => {
                         return (
                             <Fragment>
                                 <button className="btn" onClick={() => HomeFun(e.name)}>{e.name}</button>
-                            </Fragment>
+                            </Fragment> 
                         )
                     })
                 }

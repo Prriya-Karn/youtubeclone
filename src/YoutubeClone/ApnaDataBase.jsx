@@ -4,7 +4,7 @@ const YoutubeData = [
         name: "javaScript",
         src:"Images/javascript.jpg",
         subscribers:"6.63 lakh subscribers",
-     
+        chanView:"83k views - 10 months ago",
         // src:"/Images/js.jpg",
         channelData : "/Images/download.jpg",
         channelIfram : "https://www.youtube.com/embed/5ccq_nLHneE?si=j7DGWuaPdpWRoyHQ",
@@ -25,6 +25,7 @@ const YoutubeData = [
         id: 2,
         name: "Music",
         src:"/Images/music.jpg",
+        chanView:"90k views - 10 months ago",
         channelData : "/Images/css.jpg",
         channelIfram : "https://www.youtube.com/embed/dIv20SuFd6c?si=wYshaBnJoEKMnRTb",
         channelName : "MUSIC WORLD Official",
@@ -36,19 +37,22 @@ const YoutubeData = [
             link4: ""
         },
         logo:"/Images/music logo.jpg",
-        title:"Rab Ka Sukeana (Lofi - 2021) - Mohit Chauhan, Pritam " 
+        title:"Rab Ka Sukeana (Lofi - 2021) - Mohit Chauhan, Pritam",
+        description :"Rab Ka Sukeana (Lofi - 2021) - Mohit Chauhan, Pritam | Emraan Hashmi | Bollywood Lofi | MUSIC WORLD",
     },
     
     {
         id: 3,
         name: "cartoon",
+        chanView:"93k views - 10 months ago",
         channelName:" Ssoftoons Golpoguccho",
         subscribers:"45.7 lakh subscribers",
         src:"/Images/cartoon.jpg",
+        description:"मकड़ी मानव - Makri Manav | The Spider Man | Hindi Kahani | Ssoftoons Hindi Story | Cartoon तोता कहानी | Tota Kahani ",
         channelData : "/Images/fest.jpg",
         channelIfram : "https://www.youtube.com/embed/3HHoPbrtVHY?si=CTBWxvGg1rozBM_J",
         videoLink: {
-            link1: "",
+            link1: "https://www.youtube.com/embed/LKouFx2OkDI?si=BH1Nx-h3JbDIFn-P" ,
             link2: "",
             link3: "",
             link4: ""
@@ -61,12 +65,14 @@ const YoutubeData = [
     {
         id: 5,
         name: "T-Series",
+        description:"5 May 2017  Devi Bhajan Gulshan Kumar: 🙏 गुलशन जी द्वारा प्रस्तुत अलौकिक भजन संग्रह साथ में सभी भजनों को अपने स्वरों में ढाला है हरिहरन, सुरेश वाडकर, सोनू निगम",
+        chanView:"103k views - 10 months ago",
         src:"/Images/tseries.jpg",
         channelName:"T-Series Bhakti Sagar",
         channelData : "/Images/typescript.jpg",
         channelIfram:"https://www.youtube.com/embed/Xciunyug99U?si=Y2F2q1bX2C2k9lJ1",
         videoLink: {
-            link1: "",
+            link1: "https://www.youtube.com/embed/4k3ZRQ5Hi6c?si=z04E_2GagaDZ8dvp" ,
             link2: "",
             link3: "",
             link4: ""
@@ -77,15 +83,16 @@ const YoutubeData = [
     },
     {
         id: 6,
+        chanView:"12k views - 10 months ago",
         name: "Test",
         src:"/Images/test.jpg",
+        description:"Dolby Atmos creates an amazing mobile entertainment experience with breathtaking, moving audio—sound that flows all around you.",
         channelName:"K Software Factory",
         channelData : "/Images/mern.jpg",
         subscribers:"10K subscribers",
         channelIfram:"https://www.youtube.com/embed/fSmp7Cv-c_0?si=6ZhxAKrXEVWWCKO1",
         videoLink: {
-            link1: "",
-            link2: "",
+            link1: "https://www.youtube.com/embed/91BUM3WhCfo?si=_2sCyxoCqQAcUOf-",
             link3: "",
             link4: ""
         },
@@ -271,7 +278,7 @@ const mysirg = [
     {        subscribers:"8.73 lakh subscribers",
         channelData : "/Images/mp1.png",
         IDData : "1",
-        channeltit:"",
+        channeltit:"hjhjfkanfndn",
         
         chanView:"",
      chanName:"MySirG",
@@ -299,7 +306,11 @@ const mysirg = [
                 subscribers:"",
         channelData : "/Images/mp2.png",
         IDData : "2",
+        channeltit:"hjhjfkanfndn",
         
+        chanView:"",
+     chanName:"MySirG",
+     chanDesc : "",
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -321,7 +332,11 @@ const mysirg = [
                 subscribers:"",
         channelData : "/Images/mp3.png",
         IDData : "3",
+        channeltit:"hjhjfkanfndn",
         
+        chanView:"",
+     chanName:"MySirG",
+     chanDesc : "",
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -343,7 +358,11 @@ const mysirg = [
                 subscribers:"",
         channelData : "/Images/mp4.png",
         IDData : "4",
+        channeltit:"hjhjfkanfndn",
         
+        chanView:"",
+     chanName:"MySirG",
+     chanDesc : "",
         id:"1",
         tit:"My Real Story🔥The Importance of Domain & Hosting Ownership🤞Transfer Domain within Hostinger",
         views : "379 views",
@@ -364,7 +383,11 @@ const mysirg = [
     {        subscribers:"",
         channelData : "/Images/mp5.png",
         IDData : "5",
+        channeltit:"hjhjfkanfndn",
         
+        chanView:"",
+     chanName:"MySirG",
+     chanDesc : "",
         id:"2",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",
@@ -386,7 +409,11 @@ const mysirg = [
                 subscribers:"",
         channelData : "/Images/mp6.png",
         IDData : "6",
+        channeltit:"hjhjfkanfndn",
         
+        chanView:"",
+     chanName:"MySirG",
+     chanDesc : "",
         id:"3",
         tit:"100 Days of JavaScript Coding Challenges || Day #33",
         views : "810 views",

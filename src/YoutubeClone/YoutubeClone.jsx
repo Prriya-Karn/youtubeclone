@@ -1,4 +1,4 @@
-import React, { Fragment, createContext, useEffect, useRef, useState } from "react";
+import React, { Fragment, createContext, useState } from "react";
 
 import YoutubeData, { ThapaTechnical, mysirg } from "./ApnaDataBase";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -14,13 +14,15 @@ import PostData, { sirg, sirgPostData } from "./PostData";
 import ThapaPostData from "./PostData";
 import ChannelPage from "./ChannelPage";
 import SideBar from "./SideBar";
+import Subscribe from "./Subscribe";
+import TabFilter from "./TabFilter";
 
 
 const iframe = createContext();
 var filterchannel;
 var filterchannel2;
-var res;
-var res1;
+var filterTab;
+var filterTab1;
 const YoutubeClone = () => {
     const [click, setClick] = useState(YoutubeData);
     const [search, setSearch] = useState();
@@ -87,36 +89,35 @@ const YoutubeClone = () => {
     }
 
     const tab = (s) => {
-        var filterTab = (ThapaTechnical).filter((e) => e.options === s)
-            || mysirg.filter((e) => e.options === s)
-        console.log(filterTab)
-        if ((mysirg).map((e) => e.options).includes(s) === true
-            || ThapaTechnical.map((e) => e.options.includes(s) === true)) {
-            (setClick(filterTab))
+      filterTab = (ThapaTechnical).filter((e)=>{
+        return s===e.options;
+      })
+      filterTab1 = mysirg.filter((e)=>{
+        return s===e.options
+      })
 
-            // console.log(filterTab)
-            // console.log(true)
-        }
+      if(ThapaTechnical.map((e)=>e.channelName).includes(search)){
+        setClick(filterTab)
+      }else if(mysirg.map((e)=>e.channelName).includes(search)){
+        setClick(filterTab1)
+      }
 
-        //here is the problem solve later
-        if (s === "All") {
+    //   if(s==="All"){
+    //     filterTab = ThapaTechnical
+    //     setClick(filterTab)
+    //   }
 
-            setClick(filterchannel)
-        }
-
-
+      console.log(click)
+     
     }
 
 
 
 
-    // console.log(videos)
-
-
 
     const clickImage = (name) => {
-        const res = (ThapaTechnical).find((e)=>e.channelName === name
-        ) || mysirg.find((e)=>{
+        const res = (ThapaTechnical).find((e) => e.channelName === name
+        ) || mysirg.find((e) => {
             return e.channelName === name
         })
         navigate(`/channelpage/${name}`)
@@ -143,80 +144,28 @@ const YoutubeClone = () => {
     return (
         <Fragment>
 
-        <div className="main-home d-flex">
-        <div className="sidebar">
-        <SideBar/>
+            <div className="main-home d-flex">
+                <div className="sidebar">
+                    <SideBar />
 
-        
+
                     <Search
                         onchangeFun={searchText}
                         submitText={submitText}
                         search={search}
                     />
 
-                    {
-                        ((ThapaTechnical).map((e) => e.channelName).includes(search) === true)
-
-                            ?
-                            <Fragment>
-                                <TabButtons tab={tab} />
-
-                                <div>
-                                    <div className="chanLogo d-flex" onClick={()=>clickImage("thapatechnical")}>
-                                        <img src="/Images/thapalogo.png" />
-                                        <p>Thapa Technical</p>
-                                    </div>
-
-                                    <div className="content-chan">
-                                        <p>@ThapaTechnical • 6.63 lakh subscribers</p>
-                                        <p className="sub">Welcome Guys, This channel is all about Website
-                                            Development, Technical, Tips and Tricks, Designs Principle
-                                            and Programming ...</p>
-                                    </div>
-                                    <div className="channel-head">
-                                        <h1>Latest from Thapa Technical</h1>
-                                    </div>
-
-                                </div>
-
-                            </Fragment>
-
-                            :
-                            ((mysirg).map((e) => e.channelName).includes(search) === true) ?
-
-                                <Fragment>
-                                    <TabButtons tab={tab} />
-
-                                    <div>
-                                        <div className="chanLogo d-flex" onClick={()=>clickImage("mysirg")}>
-                                            <img src="/Images/mysirgLogo.png" />
-                                            <p>MySirG</p>
-                                        </div>
-
-                                        <div className="content-chan">
-                                            <p>@MySirG • 6.63 lakh subscribers</p>
-                                            <p className="sub">Welcome Guys, This channel is all about Website
-                                                Development, Technical, Tips and Tricks, Designs Principle
-                                                and Programming ...</p>
-                                        </div>
-                                        <div className="channel-head">
-                                            <h1>Latest from MySirG</h1>
-                                        </div>
-
-                                    </div>
-
-                                </Fragment> :
-
-                                <Fragment>
-                                    <HomeButtons
-                                        HomeFun={funexpr}
-                                        all={all}
-                                    />
-                                </Fragment>
-                    }
-
-
-
+                    <TabFilter
+                    click = {click}
+                    filterchannel = {filterchannel}
+                    filterchannel2 = {filterchannel2}
+                    filterTab = {filterTab}
+                    filterTab1 = {filterTab1}
+                    tab = {tab}
+                    clickImage = {clickImage}
+                    funexpr = {funexpr}
+                    all = {all}
+                    />
 
 
                     {/*channel page start from here*/}
@@ -292,38 +241,38 @@ const YoutubeClone = () => {
                                                     <h1>Latest posts from Thapa Technical</h1>
                                                 </div>
 
-                                            
-                                                <div className="Main container">
-                                                 {
 
-                                                    ThapaPostData.map((e) => {
-                                                        console.log(e)
-                                                        return (
-                                                            <Fragment>
-                                                                <div className="main-card d-flex mb-3">
-                                                                   
-                                                                        
-                                                                            <div className="card-body">
-                                                                                <LogoContent
-                                                                                    clickImage={clickImage}
-                                                                                    search={search}
-                                                                                />
-                                                                                <Posts
-                                                                                    content={e.content}
-                                                                                    PostImage={e.PostImage}
-                                                                                    search = {search}
-                                                                                />
-                                                                        
+                                                <div className="Main container">
+                                                    {
+
+                                                        ThapaPostData.map((e) => {
+                                                            console.log(e)
+                                                            return (
+                                                                <Fragment>
+                                                                    <div className="main-card d-flex mb-3">
+
+
+                                                                        <div className="card-body">
+                                                                            <LogoContent
+                                                                                clickImage={clickImage}
+                                                                                search={search}
+                                                                            />
+                                                                            <Posts
+                                                                                content={e.content}
+                                                                                PostImage={e.PostImage}
+                                                                                search={search}
+                                                                            />
+
                                                                         </div>
                                                                     </div>
-                                                              
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
+
+                                                                </Fragment>
+                                                            )
+                                                        })
+                                                    }
                                                 </div>
                                             </Fragment>
-                                     
+
                                             : sirgPostData.map((e) => e.name).includes(search) === true ?
 
                                                 <Fragment>
@@ -331,16 +280,16 @@ const YoutubeClone = () => {
                                                         <h1>Latest posts from mysirg</h1>
                                                     </div>
                                                     <div className="Main container">
-                                                {
+                                                        {
 
-                                                   sirgPostData.map((e) => {
-                                                        console.log(e)
-                                                        return (
-                                                            <Fragment>
-                                                        
-                                                                <div className="main-card d-flex mb-3">
-                                                                   
-                                                                        
+                                                            sirgPostData.map((e) => {
+                                                                console.log(e)
+                                                                return (
+                                                                    <Fragment>
+
+                                                                        <div className="main-card d-flex mb-3">
+
+
                                                                             <div className="card-body">
                                                                                 <LogoContent
                                                                                     clickImage={clickImage}
@@ -349,17 +298,17 @@ const YoutubeClone = () => {
                                                                                 <Posts
                                                                                     content={e.content}
                                                                                     PostImage={e.PostImage}
-                                                                                    search = {search}
+                                                                                    search={search}
                                                                                 />
-                                                                        
+
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                              
-                                                            </Fragment>
-                                                        )
-                                                    })
-                                                }
-                                                </div>
+
+                                                                    </Fragment>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
                                                 </Fragment> : ""
                                     }
 
@@ -376,10 +325,10 @@ const YoutubeClone = () => {
 
 
 
-                    </div>
-                    </div>
+                </div>
+            </div>
 
-            
+
         </Fragment>
     )
 }

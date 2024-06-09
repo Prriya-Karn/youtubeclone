@@ -100,7 +100,7 @@ const mysirButt = [
 ]
 
 
-const ButtonChan = () => {
+const DetailButt = () => {
     const { name } = useParams();
     const [All, setAll] = useState(thapaButt);
     const filterData = (id) => {
@@ -172,7 +172,7 @@ console.log(All)
 
 }
 
-export default ButtonChan;
+export default DetailButt;
 export { thapaButt };
 
 
